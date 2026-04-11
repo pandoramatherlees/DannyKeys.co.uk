@@ -1,4 +1,4 @@
-//* ============================================
+/* ============================================
    DANNY MATTIN — Hammond Organ & Rock Keyboards
    Master Stylesheet
    Palette: Deep black, amber/brass, deep purple
@@ -153,48 +153,49 @@ h1, h2, h3, h4 {
   transition: all 0.3s;
 }
 
-/* --- Hero Section (Split: text left, photo right) --- */
+/* --- Hero Section (Full-bleed background, overlaid text) --- */
 .hero {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: center;
   overflow: hidden;
   padding-top: var(--nav-height);
-  background: var(--black);
 }
 
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 4rem 3rem 4rem 4rem;
-  background: var(--black);
-  z-index: 2;
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
-.hero-photo {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-photo img {
+.hero-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
 }
 
-.hero-photo::before {
+.hero-bg::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 80px;
-  background: linear-gradient(90deg, var(--black), transparent);
-  z-index: 1;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 6, 11, 0.3) 0%,
+    rgba(7, 6, 11, 0.5) 50%,
+    rgba(7, 6, 11, 0.85) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem 2.5rem;
+  width: 100%;
 }
 
 .hero-name {
@@ -204,31 +205,31 @@ h1, h2, h3, h4 {
 }
 
 .hero-name-line {
-  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-size: clamp(5rem, 12vw, 10rem);
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  line-height: 0.95;
+  line-height: 0.9;
   text-shadow:
-    0 0 20px rgba(255, 255, 255, 0.4),
-    0 0 60px rgba(255, 255, 255, 0.15),
-    0 0 100px rgba(200, 150, 62, 0.1);
+    0 0 30px rgba(255, 255, 255, 0.5),
+    0 0 80px rgba(255, 255, 255, 0.2),
+    0 0 120px rgba(200, 150, 62, 0.15);
 }
 
 .hero-tagline {
   font-family: var(--font-display);
-  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
   color: var(--amber);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.15em;
   margin-bottom: 1.5rem;
-  margin-top: 0.8rem;
+  margin-top: 1rem;
   text-transform: uppercase;
 }
 
 .hero-text {
-  font-size: 1.05rem;
-  max-width: 480px;
-  color: var(--body-text);
+  font-size: 1.1rem;
+  max-width: 550px;
+  color: #e0d8cc;
   margin-bottom: 2rem;
   line-height: 1.8;
 }
@@ -237,6 +238,11 @@ h1, h2, h3, h4 {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+/* Remove old split hero classes */
+.hero-photo {
+  display: none;
 }
 
 /* --- Buttons --- */
@@ -855,16 +861,7 @@ h1, h2, h3, h4 {
 
 @media (max-width: 768px) {
   .hero {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-
-  .hero-photo {
-    height: 50vh;
-  }
-
-  .hero-photo::before {
-    display: none;
+    min-height: 90vh;
   }
 
   .hero-content {
