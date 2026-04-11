@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danny Mattin — Life on the Road</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #07060b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .montage-frame {
+    position: relative;
+    width: 90vw;
+    max-width: 750px;
+    height: 70vh;
+    max-height: 500px;
+    border: 5px solid #b8860b;
+    border-image: linear-gradient(135deg, #c8963e, #8b6914, #d4a84b, #6b4f0a, #c8963e) 1;
+    box-shadow:
+      0 0 30px rgba(200, 150, 62, 0.3),
+      inset 0 0 30px rgba(0, 0, 0, 0.5);
+    background: #0a0a0f;
+    overflow: hidden;
+  }
+
+  .montage-frame img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 82%;
+    max-height: 82%;
+    object-fit: contain;
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(0deg);
+    transition: opacity 0.12s ease;
+    border: 3px solid rgba(200, 150, 62, 0.35);
+    box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.7);
+  }
+
+  .montage-frame img.active {
+    opacity: 1;
+  }
+
+  .controls {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .controls button {
+    background: rgba(200, 150, 62, 0.2);
+    border: 1px solid rgba(200, 150, 62, 0.4);
+    color: #c8963e;
+    padding: 6px 16px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    transition: all 0.3s;
+  }
+
+  .controls button:hover {
+    background: rgba(200, 150, 62, 0.35);
+  }
+
+  .controls button.active-btn {
+    background: #c8963e;
+    color: #07060b;
+  }
+
+  .controls span {
+    color: #a89e8c;
+    font-size: 0.8rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="montage-frame" id="montage">
+  <img src="images/lifeontheroad/AUSTRALIAN%20TOUR.jpeg" alt="Australian Tour">
+  <img src="images/lifeontheroad/Australia%20tour.jpg" alt="Australia tour">
+  <img src="images/lifeontheroad/DRESSED%20FOR%20ACTION.jpeg" alt="Dressed for action">
+  <img src="images/lifeontheroad/DandP.jpg" alt="Danny and P">
+  <img src="images/lifeontheroad/THE%20ULTIMATE%20PLEASERS.jpeg" alt="The Ultimate Pleasers">
+  <img src="images/lifeontheroad/danny%204.jpg" alt="Danny 4">
+  <img src="images/lifeontheroad/danny%20and%20pandy.jpg" alt="Danny and Pandy">
+  <img src="images/lifeontheroad/danny2.jpg" alt="Danny 2">
+  <img src="images/lifeontheroad/festival.jpg" alt="Festival">
+  <img src="images/lifeontheroad/mark%20olbrich%20blues%20enternity%20poster.jpg" alt="Mark Olbrich Blues Eternity poster">
+  <img src="images/lifeontheroad/mark%20olbrich%20blues%20eternity%20band%20on%20the%20road.jpg" alt="Blues Eternity band on the road">
+  <img src="images/lifeontheroad/mark%20olbrich%20blues%20eternity%20group%20on%20the%20road.jpg" alt="Blues Eternity group on the road">
+  <img src="images/lifeontheroad/metal%20waistcoat%20for%20style%20section.jpg" alt="Metal waistcoat">
+  <img src="images/lifeontheroad/on%20the%20rd.jpg" alt="On the road">
+  <img src="images/lifeontheroad/onrd.jpg" alt="On the road 2">
+</div>
+
+<div class="controls">
+  <button id="playBtn" class="active-btn" onclick="togglePlay()">⏸ PAUSE</button>
+  <span>Speed:</span>
+  <button onclick="setSpeed(800)">Slow</button>
+  <button onclick="setSpeed(350)" class="active-btn">Fast</button>
+  <button onclick="setSpeed(120)">Rapid</button>
+</div>
+
+<script>
+  const imgs = document.querySelectorAll('#montage img');
+  const angles = [-4, 3, -2, 5, -3, 2, -5, 4, -1, 3, -4, 2, -3, 5, -2];
+  let current = 0;
+  let speed = 350;
+  let playing = true;
+  let timer;
+
+  // Pre-set random angles
+  imgs.forEach((img, i) => {
+    img.style.transform = `translate(-50%, -50%) rotate(${angles[i % angles.length]}deg)`;
+  });
+
+  function showNext() {
+    imgs[current].classList.remove('active');
+    current = (current + 1) % imgs.length;
+    imgs[current].classList.add('active');
+  }
+
+  function startCycle() {
+    clearInterval(timer);
+    timer = setInterval(showNext, speed);
+  }
+
+  function togglePlay() {
+    const btn = document.getElementById('playBtn');
+    if (playing) {
+      clearInterval(timer);
+      btn.textContent = '▶ PLAY';
+      btn.classList.remove('active-btn');
+    } else {
+      startCycle();
+      btn.textContent = '⏸ PAUSE';
+      btn.classList.add('active-btn');
+    }
+    playing = !playing;
+  }
+
+  function setSpeed(s) {
+    speed = s;
+    document.querySelectorAll('.controls button').forEach(b => {
+      if (b.id !== 'playBtn') b.classList.remove('active-btn');
+    });
+    event.target.classList.add('active-btn');
+    if (playing) startCycle();
+  }
+
+  // Start
+  imgs[0].classList.add('active');
+  startCycle();
+</script>
+
+</body>
+</html>
