@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Watch Danny Mattin perform live — videos, photo gallery and the iconic Floyd-style photo carousel. Hammond organ and rock keyboards in action.">
+  <title>Watch &amp; Listen — Danny Mattin</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo">Danny Mattin</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="watch.html" class="active">Watch &amp; Listen</a></li>
+      <li><a href="rig.html">Rig &amp; The Road</a></li>
+      <li><a href="press.html">Press</a></li>
+      <li><a href="contact.html">Book Danny</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Hero — uses the carousel as the hero element -->
+  <section class="page-hero" style="min-height: 40vh;">
+    <div class="hero-bg">
+      <img src="images/heoresandspareimages/NOTBESTQUALITYBUTBLACKWHITEFESTIVALENCORESHOT.jpg" alt="Danny Mattin performing at a festival">
+    </div>
+    <div class="page-hero-content">
+      <h1 class="page-hero-title fade-in">Watch &amp; Listen</h1>
+      <p class="page-hero-sub fade-in fade-in-delay-1">Live Performances &amp; Gallery</p>
+    </div>
+  </section>
+
+  <!-- Floyd-Style Photo Carousel -->
+  <!-- NOTE: Upload your danny_mattin_photo_montage_11.html to the repo root
+       or WATCHPAGECAROUSEL folder and update the iframe src below -->
+  <section class="section-dark texture-overlay" style="padding: 4rem 0;">
+    <div class="section-inner" style="text-align: center;">
+      <h2 class="section-title" style="text-align: center;">Photo Gallery</h2>
+      <span class="section-accent" style="margin: 0 auto 2rem;"></span>
+      <div class="carousel-container">
+        <iframe src="danny_mattin_photo_montage_11.html" title="Danny Mattin Photo Montage" loading="lazy"></iframe>
+      </div>
+      <p style="color: var(--warm-grey); margin-top: 1rem; font-size: 0.9rem;">Use controls to play, pause and adjust speed</p>
+    </div>
+  </section>
+
+  <!-- Videos -->
+  <div class="divider-angled-reverse"></div>
+  <section class="section-purple texture-overlay" style="padding: 5rem 0;">
+    <div class="section-inner">
+      <h2 class="section-title">Live Videos</h2>
+      <span class="section-accent"></span>
+      <div class="video-grid">
+
+        <!-- Video 1: Hold Your Head Up with The Zombies -->
+        <div class="video-card">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/RPFDOW8yOa8" title="The Zombies — Hold Your Head Up, Nov 2024" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-label">The Zombies — "Hold Your Head Up" — Harpenden, Nov 2024</div>
+        </div>
+
+        <!-- Video 2: Lounsberry Pedals Endorsement -->
+        <!-- NOTE: Replace the src below with the correct embed URL for the Lounsberry video.
+             The Bing redirect link in the docs won't embed — you need the direct YouTube/Vimeo embed URL -->
+        <div class="video-card">
+          <div class="video-embed" style="background: var(--dark-purple); display: flex; align-items: center; justify-content: center; padding-bottom: 56.25%; position: relative;">
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+              <p style="color: var(--warm-grey); font-size: 1.1rem; padding: 0 1.5rem; text-align: center;">Lounsberry Pedals Endorsement Video</p>
+              <a href="https://www.lounsberrypedals.com/danny-mattin/" target="_blank" rel="noopener" class="btn btn-outline" style="font-size: 0.9rem; padding: 0.5rem 1.2rem;">View on Lounsberry Pedals</a>
+            </div>
+          </div>
+          <div class="video-label">Danny Mattin — Lounsberry Organ Grinder Endorsement</div>
+        </div>
+
+        <!-- Video 3: Absolute Bowie Solo (Facebook Reel) -->
+        <div class="video-card">
+          <div class="video-embed" style="background: var(--dark-purple); display: flex; align-items: center; justify-content: center; padding-bottom: 56.25%; position: relative;">
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+              <p style="color: var(--warm-grey); font-size: 1.1rem; padding: 0 1.5rem; text-align: center;">Absolute Bowie — Live Solo</p>
+              <a href="https://www.facebook.com/reel/1556028665472611/" target="_blank" rel="noopener" class="btn btn-outline" style="font-size: 0.9rem; padding: 0.5rem 1.2rem;">Watch on Facebook</a>
+            </div>
+          </div>
+          <div class="video-label">Absolute Bowie — Live Keyboard Solo</div>
+        </div>
+
+      </div>
+
+      <!-- More videos row -->
+      <div class="video-grid" style="margin-top: 2rem;">
+        <!-- Video 4: Rising From the Deep (Facebook Reel) -->
+        <div class="video-card">
+          <div class="video-embed" style="background: var(--dark-purple); display: flex; align-items: center; justify-content: center; padding-bottom: 56.25%; position: relative;">
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+              <p style="color: var(--warm-grey); font-size: 1.1rem; padding: 0 1.5rem; text-align: center;">Rising From The Deep</p>
+              <a href="https://www.facebook.com/reel/2453256051471463" target="_blank" rel="noopener" class="btn btn-outline" style="font-size: 0.9rem; padding: 0.5rem 1.2rem;">Watch on Facebook</a>
+            </div>
+          </div>
+          <div class="video-label">Rising From The Deep — Live Performance</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Static Photo Gallery -->
+  <div class="divider-angled" style="background: var(--dark);"></div>
+  <section class="section-dark" style="padding: 5rem 0;">
+    <div class="section-inner">
+      <h2 class="section-title">Gallery</h2>
+      <span class="section-accent"></span>
+      <div class="gallery-grid">
+        <img src="images/heoresandspareimages/DANNY PLAYING GRAPHAM BONNETT 2.jpg" alt="Danny playing with Graham Bonnet" loading="lazy">
+        <img src="images/heoresandspareimages/Danny cool shot playing graham bonnet.jpg" alt="Danny performing with Graham Bonnet Band" loading="lazy">
+        <img src="images/heoresandspareimages/Danny cool shot with rising from the deep.jpg" alt="Danny with Rising From The Deep" loading="lazy">
+        <img src="images/heoresandspareimages/Danny touring with Absolute BOwie in Melbourne.jpg" alt="Danny touring with Absolute Bowie in Melbourne" loading="lazy">
+        <img src="images/heoresandspareimages/RAMBLINGMANFESTIVAL.jpg" alt="Danny at Ramblin Man Festival" loading="lazy">
+        <img src="images/heoresandspareimages/NOTBESTQUALITYBUTBLACKWHITEFESTIVALENCORESHOT.jpg" alt="Danny performing at festival encore" loading="lazy">
+        <img src="images/heoresandspareimages/spare action shot.jpg" alt="Danny Mattin live action shot" loading="lazy">
+        <img src="images/heoresandspareimages/dannywithharleydavidsonbike.jpg" alt="Danny with Harley Davidson" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-name">Danny Mattin</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="watch.html">Watch &amp; Listen</a>
+        <a href="rig.html">Rig &amp; The Road</a>
+        <a href="press.html">Press</a>
+        <a href="contact.html">Book Danny</a>
+        <a href="https://www.facebook.com/Dannymattin" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/dannymattin/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <p class="footer-copy">&copy; 2025 Danny Mattin. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
