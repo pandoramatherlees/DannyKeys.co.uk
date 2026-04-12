@@ -179,6 +179,9 @@ h1, h2, h3, h4 {
   padding: 4rem 2.5rem 4rem 4rem;
   background: var(--dark);
 }
+.page-hero-split .hero-photo img {
+  filter: contrast(1.05) saturate(1.1);
+}
 
 /* === BUTTONS === */
 .btn {
