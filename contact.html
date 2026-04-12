@@ -9,9 +9,7 @@
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav class="site-nav">
-    <a href="index.html" class="nav-logo">Danny Mattin</a>
     <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
@@ -24,65 +22,53 @@
     </ul>
   </nav>
 
-  <!-- Page Hero -->
-  <section class="page-hero">
-    <div class="hero-bg">
+  <!-- Split Hero: Large photo LEFT, contact info RIGHT -->
+  <section class="page-hero-split">
+    <div class="hero-photo">
       <img src="images/heoresandspareimages/ubercoolplaying%20hero%20contact%20page.jpg" alt="Danny Mattin playing keyboards">
     </div>
-    <div class="page-hero-content">
+    <div class="page-hero-text" style="background: var(--dark);">
       <h1 class="page-hero-title fade-in">Book Danny</h1>
-      <p class="page-hero-sub fade-in fade-in-delay-1">Bookings &amp; Enquiries</p>
-    </div>
-  </section>
+      <p class="page-hero-sub fade-in fade-in-delay-1" style="margin-bottom: 2rem;">Bookings &amp; Enquiries</p>
 
-  <!-- Contact Section -->
-  <section class="section-dark texture-overlay" style="padding: 5rem 0;">
-    <div class="section-inner">
-      <div class="contact-layout">
+      <div class="fade-in fade-in-delay-2">
+        <p style="margin-bottom: 2rem; font-size: 1.05rem; color: var(--body-text);">For bookings, collaborations or general enquiries please contact Danny directly. Whether the project involves touring, live performances, tribute productions or studio sessions, enquiries are welcome.</p>
 
-        <!-- Contact Details -->
-        <div class="contact-details">
-          <h3>Get in Touch</h3>
-          <p style="margin-bottom: 2rem; font-size: 1.05rem;">For bookings, collaborations or general enquiries please contact Danny directly. Whether the project involves touring, live performances, tribute productions or studio sessions, enquiries are welcome.</p>
-
-          <div class="contact-item">
-            <div class="label">Email</div>
-            <a href="mailto:dannykeys@hotmail.co.uk">dannykeys@hotmail.co.uk</a>
-          </div>
-
-          <div class="contact-item">
-            <div class="label">Mobile</div>
-            <span>07897 572125</span>
-          </div>
-
-          <div class="social-links">
-            <a href="https://www.facebook.com/Dannymattin" target="_blank" rel="noopener">Facebook</a>
-            <a href="https://www.instagram.com/dannymattin/" target="_blank" rel="noopener">Instagram</a>
-          </div>
-
-          <p style="margin-top: 2rem; color: var(--warm-grey); font-size: 0.95rem;">For booking enquiries it is helpful to include the venue, event date and location so that availability can be confirmed quickly.</p>
+        <div class="contact-item">
+          <div class="label">Email</div>
+          <a href="mailto:dannykeys@hotmail.co.uk" style="color: var(--warm-white); font-size: 1.15rem;">dannykeys@hotmail.co.uk</a>
         </div>
 
-        <!-- Contact Form -->
-        <div>
-          <h3 style="font-size: 1.6rem; margin-bottom: 1.5rem; color: var(--amber);">Send a Message</h3>
-          <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <!-- NOTE: Replace YOUR_FORM_ID above with a real Formspree ID,
-                 or swap for another form handler. Without it the form won't submit.
-                 Free option: sign up at formspree.io and create a form for dannykeys@hotmail.co.uk -->
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="text" name="subject" placeholder="Subject (e.g. Booking Enquiry, Collaboration)">
-            <textarea name="message" placeholder="Your message — please include venue, date and location for bookings" required></textarea>
-            <button type="submit" class="btn btn-primary" style="border: none; cursor: pointer;">Send Message</button>
-          </form>
+        <div class="contact-item">
+          <div class="label">Mobile</div>
+          <span style="color: var(--warm-white); font-size: 1.15rem;">07897 572125</span>
         </div>
 
+        <div class="social-links">
+          <a href="https://www.facebook.com/Dannymattin" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/dannymattin/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+
+        <p style="margin-top: 2rem; color: var(--warm-grey); font-size: 0.95rem;">For booking enquiries it is helpful to include the venue, event date and location so that availability can be confirmed quickly.</p>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Contact Form Section -->
+  <section class="section-dark texture-overlay" style="padding: 5rem 0;">
+    <div class="section-inner" style="max-width: 650px;">
+      <h2 class="section-title" style="text-align: center;">Send a Message</h2>
+      <span class="section-accent" style="margin: 0 auto 2rem;"></span>
+      <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="subject" placeholder="Subject (e.g. Booking Enquiry, Collaboration)">
+        <textarea name="message" placeholder="Your message — please include venue, date and location for bookings" required></textarea>
+        <button type="submit" class="btn btn-primary" style="border: none; cursor: pointer; align-self: center;">Send Message</button>
+      </form>
+    </div>
+  </section>
+
   <footer class="site-footer">
     <div class="footer-inner">
       <p class="footer-name">Danny Mattin</p>
@@ -99,5 +85,13 @@
     </div>
   </footer>
 
+  <script>
+    window.addEventListener('scroll', function() {
+      document.querySelector('.site-nav').classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
 </body>
 </html>
+
+
+
