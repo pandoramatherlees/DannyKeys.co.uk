@@ -9,9 +9,7 @@
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav class="site-nav">
-    <a href="index.html" class="nav-logo">Danny Mattin</a>
     <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
@@ -24,7 +22,6 @@
     </ul>
   </nav>
 
-  <!-- Page Hero -->
   <section class="page-hero">
     <div class="hero-bg">
       <img src="images/heoresandspareimages/ENDORSEMENTS%20heroRIG.jpg" alt="Danny Mattin's keyboard rig on stage">
@@ -54,7 +51,7 @@
     </div>
   </section>
 
-  <!-- Lounsberry / Endorsements -->
+  <!-- Endorsements -->
   <div class="divider-angled-reverse"></div>
   <section class="section-purple texture-overlay" style="padding: 5rem 0;">
     <div class="section-inner">
@@ -66,7 +63,6 @@
         <a href="https://www.lounsberrypedals.com/danny-mattin/" target="_blank" rel="noopener" class="btn btn-outline" style="margin-right: 1rem;">Danny on Lounsberry Pedals</a>
         <a href="watch.html" class="btn btn-outline">Watch Endorsement Video</a>
       </p>
-
       <div class="brand-strip" style="margin-top: 2rem;">
         <span>Hammond</span>
         <span>Leslie</span>
@@ -85,10 +81,6 @@
       <h2 class="section-title" style="text-align: center;">Life on the Road</h2>
       <span class="section-accent" style="margin: 0 auto 1.5rem;"></span>
       <p style="max-width: 650px; margin: 0 auto 2rem; font-size: 1.05rem;">The camaraderie, the late nights, the breakdowns, the laughs — life on tour is where the real stories come from. Between the venues, the motorways and the green rooms, these are the moments that make it all worthwhile.</p>
-
-      <!-- Life on the Road Montage -->
-      <!-- NOTE: Upload danny_mattin_photo_montage_13.html to the repo root
-           or update the iframe src to its location -->
       <div class="carousel-container">
         <iframe src="danny_mattin_photo_montage_13.html" title="Life on the Road Photo Montage" loading="lazy"></iframe>
       </div>
@@ -105,20 +97,16 @@
       <p style="max-width: 750px; margin-bottom: 1rem; font-size: 1.05rem;">Danny's stage presence extends beyond his Hammond organ sound. His performance style is matched by a distinctive visual identity that draws on classic rock, glam influences and vintage fashion.</p>
       <p style="max-width: 750px; margin-bottom: 1rem; font-size: 1.05rem;">His stage wardrobe is an eclectic mix sourced from vintage clothing stores and specialist designers — <a href="https://www.phixclothing.com/" target="_blank" rel="noopener">PHIX Clothing</a>, <a href="https://www.saisai.co.uk/product-category/mens/" target="_blank" rel="noopener">Sai Sai</a> and <a href="https://www.cyberdog.net/collections/mens" target="_blank" rel="noopener">Cyberdog</a> in Camden Town, along with many vintage pieces.</p>
       <p style="max-width: 750px; margin-bottom: 1.5rem; font-size: 1.05rem;">Danny is also an admirer of the renowned London tailor <a href="https://tombakerlondon.com/press/" target="_blank" rel="noopener">Sir Tom Baker</a>, whose work for musicians and performers has become legendary. Vintage and custom waistcoats are a particular favourite, often forming the centrepiece of his stage gear look.</p>
-      <p style="max-width: 750px; margin-bottom: 0; font-size: 1.05rem;">For Danny the stage is essentially about music — but giving a paying audience a 360-degree professional show means paying attention to atmosphere and personality. The combination of rock-metal driven sound and striking visual style makes for a memorable performance.</p>
+      <p style="max-width: 750px; margin-bottom: 1.5rem; font-size: 1.05rem;">For Danny the stage is essentially about music — but giving a paying audience a 360-degree professional show means paying attention to atmosphere and personality. The combination of rock-metal driven sound and striking visual style makes for a memorable performance.</p>
 
-      <!-- Stage style photos — update src paths if you add dedicated stage style images -->
-      <!--
       <div class="style-photos">
-        <img src="images/heoresandspareimages/STYLE1.jpg" alt="Danny Mattin stage outfit" loading="lazy">
-        <img src="images/heoresandspareimages/STYLE2.jpg" alt="Danny Mattin glam rock outfit" loading="lazy">
-        <img src="images/heoresandspareimages/STYLE3.jpg" alt="Danny Mattin waistcoat look" loading="lazy">
+        <img src="images/heoresandspareimages/STAGE%20STYLE%201.jpg" alt="Danny Mattin stage style" loading="lazy">
+        <img src="images/heoresandspareimages/STAGE%20STYLE%204.jpg" alt="Danny Mattin stage outfit" loading="lazy">
+        <img src="images/heoresandspareimages/STYLE%20SECTION%20WAISTCOAT2.png" alt="Danny Mattin waistcoat stage look" loading="lazy">
       </div>
-      -->
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-inner">
       <p class="footer-name">Danny Mattin</p>
@@ -135,5 +123,10 @@
     </div>
   </footer>
 
+  <script>
+    window.addEventListener('scroll', function() {
+      document.querySelector('.site-nav').classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
 </body>
 </html>
