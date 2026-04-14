@@ -16,33 +16,83 @@
     font-family: 'Segoe UI', sans-serif;
   }
 
+  /* === HEAVY METAL FRAME === */
   .montage-frame {
     position: relative;
     width: 90vw;
     max-width: 750px;
     height: 70vh;
     max-height: 500px;
-    border: 5px solid #b8860b;
-    border-image: linear-gradient(135deg, #c8963e, #8b6914, #d4a84b, #6b4f0a, #c8963e) 1;
-    box-shadow:
-      0 0 30px rgba(200, 150, 62, 0.3),
-      inset 0 0 30px rgba(0, 0, 0, 0.5);
     background: #0a0a0f;
     overflow: hidden;
+
+    /* Thick steel/chrome border */
+    border: 8px solid #3a3a3a;
+    border-image: linear-gradient(
+      145deg,
+      #1a1a1a 0%,
+      #555 12%,
+      #2a2a2a 25%,
+      #666 38%,
+      #1a1a1a 50%,
+      #555 62%,
+      #2a2a2a 75%,
+      #666 88%,
+      #1a1a1a 100%
+    ) 1;
+
+    /* Industrial glow — dark red/orange heat + steel shadow */
+    box-shadow:
+      0 0 4px rgba(180, 40, 20, 0.6),
+      0 0 20px rgba(180, 40, 20, 0.2),
+      0 0 50px rgba(0, 0, 0, 0.8),
+      inset 0 0 40px rgba(0, 0, 0, 0.7),
+      inset 0 0 4px rgba(180, 40, 20, 0.15);
   }
 
+  /* Corner rivets */
+  .montage-frame::before,
+  .montage-frame::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #777, #333 50%, #1a1a1a);
+    box-shadow: 0 0 4px rgba(0,0,0,0.8), inset 0 1px 1px rgba(255,255,255,0.15);
+    z-index: 5;
+  }
+  .montage-frame::before { top: 10px; left: 10px; }
+  .montage-frame::after { top: 10px; right: 10px; }
+
+  /* Bottom corner rivets via the montage inner wrapper */
+  #montage-inner::before,
+  #montage-inner::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #777, #333 50%, #1a1a1a);
+    box-shadow: 0 0 4px rgba(0,0,0,0.8), inset 0 1px 1px rgba(255,255,255,0.15);
+    z-index: 5;
+  }
+  #montage-inner::before { bottom: 10px; left: 10px; }
+  #montage-inner::after { bottom: 10px; right: 10px; }
+  #montage-inner { position: absolute; inset: 0; }
+
+  /* Images — NO inner border/frame */
   .montage-frame img {
     position: absolute;
     top: 50%;
     left: 50%;
-    max-width: 82%;
-    max-height: 82%;
+    max-width: 85%;
+    max-height: 85%;
     object-fit: contain;
     opacity: 0;
     transform: translate(-50%, -50%) rotate(0deg);
     transition: opacity 0.12s ease;
-    border: 3px solid rgba(200, 150, 62, 0.35);
-    box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.7);
+    box-shadow: 6px 6px 30px rgba(0, 0, 0, 0.8);
   }
 
   .montage-frame img.active {
@@ -61,34 +111,52 @@
   }
 
   .controls button {
-    background: rgba(200, 150, 62, 0.2);
-    border: 1px solid rgba(200, 150, 62, 0.4);
-    color: #c8963e;
+    background: rgba(100, 100, 100, 0.25);
+    border: 1px solid rgba(150, 150, 150, 0.3);
+    color: #999;
     padding: 6px 16px;
     cursor: pointer;
     font-size: 0.85rem;
     letter-spacing: 0.08em;
+    text-transform: uppercase;
     transition: all 0.3s;
   }
 
   .controls button:hover {
-    background: rgba(200, 150, 62, 0.35);
+    background: rgba(180, 40, 20, 0.25);
+    border-color: rgba(180, 40, 20, 0.5);
+    color: #ccc;
   }
 
   .controls button.active-btn {
-    background: #c8963e;
-    color: #07060b;
+    background: rgba(180, 40, 20, 0.6);
+    border-color: rgba(180, 40, 20, 0.8);
+    color: #fff;
   }
 
   .controls span {
-    color: #a89e8c;
+    color: #777;
     font-size: 0.8rem;
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    .montage-frame {
+      width: 95vw;
+      height: 55vh;
+      border-width: 6px;
+    }
+    .montage-frame::before, .montage-frame::after,
+    #montage-inner::before, #montage-inner::after {
+      width: 10px; height: 10px;
+    }
   }
 </style>
 </head>
 <body>
 
 <div class="montage-frame" id="montage">
+  <div id="montage-inner"></div>
   <img src="images/lifeontheroad/AUSTRALIAN%20TOUR.jpeg" alt="Australian Tour">
   <img src="images/lifeontheroad/Australia%20tour.jpg" alt="Australia tour">
   <img src="images/lifeontheroad/DRESSED%20FOR%20ACTION.jpeg" alt="Dressed for action">
@@ -122,7 +190,6 @@
   let playing = true;
   let timer;
 
-  // Pre-set random angles
   imgs.forEach((img, i) => {
     img.style.transform = `translate(-50%, -50%) rotate(${angles[i % angles.length]}deg)`;
   });
@@ -161,7 +228,6 @@
     if (playing) startCycle();
   }
 
-  // Start
   imgs[0].classList.add('active');
   startCycle();
 </script>
