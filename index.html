@@ -34,11 +34,13 @@
   .ls2 { left: 52%; transform: rotate(-5deg); background: linear-gradient(to bottom, rgba(124,58,237,.08), transparent 60%); }
   .ls3 { left: 74%; transform: rotate(12deg); background: linear-gradient(to bottom, rgba(245,158,11,.06), transparent 55%); }
 
-  /* DANNY'S PHOTO — right half, bleeding to edge */
+  /* DANNY'S PHOTO — right half, mask-image for seamless bleed */
   .hero-photo {
     position: absolute; top: 0; right: 0;
     width: 55%; height: 100%;
     z-index: 2; overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.5) 15%, rgba(0,0,0,.85) 30%, black 50%);
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.5) 15%, rgba(0,0,0,.85) 30%, black 50%);
   }
   .hero-photo img {
     width: 100%; height: 100%;
@@ -47,12 +49,10 @@
     display: block;
     filter: brightness(.75) saturate(.85);
   }
-  /* Fade left edge + bottom into black so photo bleeds naturally */
+  /* Subtle bottom fade only */
   .hero-photo::before {
     content: ''; position: absolute; inset: 0; z-index: 1;
-    background:
-      linear-gradient(to right, var(--black) 0%, rgba(8,8,8,.5) 10%, rgba(8,8,8,.25) 25%, rgba(8,8,8,.08) 40%, transparent 60%),
-      linear-gradient(to top, var(--black) 0%, rgba(8,8,8,.2) 20%, transparent 45%);
+    background: linear-gradient(to top, var(--black) 0%, rgba(8,8,8,.15) 15%, transparent 35%);
     pointer-events: none;
   }
 
@@ -69,7 +69,7 @@
   .hero-name {
     font-family: 'Anton', sans-serif;
     font-size: clamp(5.5rem, 13vw, 13rem);
-    line-height: .87;
+    line-height: .93;
     letter-spacing: -.015em;
     text-transform: uppercase;
     margin-bottom: .5rem;
@@ -210,8 +210,8 @@
     .hero-name { font-size: clamp(3.5rem, 17vw, 7rem); }
     .hero-sub { font-size: clamp(1.1rem, 5vw, 1.6rem); letter-spacing: .1em; margin-bottom: 1rem; }
     .hero-intro { font-size: .95rem; margin-bottom: 1.5rem; }
-    .hero-photo { width: 100%; opacity: .3; }
-    .hero-photo::before { background: linear-gradient(to top, var(--black) 0%, rgba(8,8,8,.4) 35%, transparent 70%), linear-gradient(to right, rgba(8,8,8,.2) 0%, transparent 100%); }
+    .hero-photo { width: 100%; opacity: .3; -webkit-mask-image: none; mask-image: none; }
+    .hero-photo::before { background: linear-gradient(to top, var(--black) 0%, rgba(8,8,8,.4) 35%, transparent 70%); }
     .btn-primary, .btn-secondary { font-size: .75rem; padding: .8rem 1.6rem; }
     .scroll-cue { display: none; }
     .mini-bio, .bands-section, .rig-section, .quote-section { padding: 3rem 1.5rem; }
