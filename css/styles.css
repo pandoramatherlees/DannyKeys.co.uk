@@ -31,6 +31,47 @@ body {
   color: var(--body-text);
   line-height: 1.7;
   font-weight: 400;
+   /* ============================================
+   PAGE FIXES — paste at bottom of styles.css
+   ============================================ */
+
+/* FIX: Rig page hero — shorter so content isn't pushed below fold */
+.page-hero {
+  min-height: 35vh;
+}
+
+/* FIX: Contact/Press split hero — shorter, image contained */
+.page-hero-split {
+  min-height: 70vh;
+}
+.page-hero-split .hero-photo {
+  min-height: 70vh;
+}
+.page-hero-split .hero-photo img {
+  top: 0;
+  height: 100%;
+  object-position: center 20%;
+}
+
+/* FIX: Contact page — text LEFT, photo RIGHT */
+.page-hero-split .page-hero-text {
+  order: -1;
+}
+
+/* FIX: Mobile — split heroes stack properly */
+@media (max-width: 768px) {
+  .page-hero-split {
+    min-height: auto;
+  }
+  .page-hero-split .hero-photo {
+    min-height: 35vh;
+    order: -1;
+  }
+  .page-hero-split .page-hero-text {
+    order: 1;
+  }
+}
+
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
