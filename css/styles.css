@@ -456,3 +456,15 @@ h1, h2, h3, h4 {
     font-size: clamp(5rem, 20vw, 8rem);
   }
 }
+/* FIX: Carousel mobile scaling */
+@media (max-width: 620px) {
+  .carousel-container {
+    overflow: hidden;
+    height: 55vw;
+  }
+  .carousel-container iframe {
+    width: 620px;
+    height: 620px;
+    transform: scale(0.55);
+    transform-origin: top left;
+  }
