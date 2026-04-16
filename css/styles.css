@@ -166,14 +166,19 @@ h1, h2, h3, h4 {
 }
 .hero-name { display: flex; flex-direction: column; margin-bottom: 0.5rem; }
 .hero-name-line {
-  font-size: clamp(7rem, 16vw, 14rem);
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  line-height: 0.85;
-  text-shadow: 0 0 40px rgba(255,255,255,0.4), 0 0 80px rgba(255,255,255,0.15), 0 0 120px rgba(200,150,62,0.12);
-  -webkit-text-stroke: 2px rgba(255,255,255,0.85);
-  paint-order: stroke fill;
+  font-family: 'Anton', sans-serif !important;
+  font-size: clamp(4.5rem, 11vw, 8rem) !important;
+  color: #fff5e6 !important;
+  letter-spacing: 0.05em !important;
+  line-height: 0.92 !important;
+  text-shadow:
+    0 0 10px rgba(230, 180, 120, 0.9),
+    0 0 20px rgba(220, 160, 100, 0.7),
+    0 0 40px rgba(200, 140, 70, 0.55),
+    0 0 80px rgba(190, 120, 60, 0.4),
+    0 0 120px rgba(180, 100, 140, 0.3),
+    0 0 200px rgba(150, 80, 130, 0.15) !important;
+  animation: heroGlow 4s ease-in-out infinite alternate !important;
 }
 .hero-tagline {
   font-family: var(--font-display);
