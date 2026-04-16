@@ -484,19 +484,7 @@ h1, h2, h3, h4 {
     background: #0a0a0f;
   }
 }/* ============================================
-   HERO TEXT ENHANCEMENT OVERRIDE
-   
-   HOW TO USE:
-   Open index.html on GitHub (pencil icon to edit).
-   Find the </head> tag near the top.
-   Paste this ENTIRE block just BEFORE </head>:
-   
-   <style>
-     ...paste everything between the style tags below...
-   </style>
-   
-   Then commit the change.
-   ============================================ */
+  */
 
 /* --- Enhanced DANNY MATTIN name glow --- */
 .hero-name-line {
