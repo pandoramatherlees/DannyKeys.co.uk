@@ -179,6 +179,7 @@ h1, h2, h3, h4 {
     0 0 120px rgba(180, 100, 140, 0.3),
     0 0 200px rgba(150, 80, 130, 0.15) !important;
   animation: heroGlow 4s ease-in-out infinite alternate !important;
+   text-transform: uppercase !important;
 }
 .hero-tagline {
   font-family: var(--font-display);
