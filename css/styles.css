@@ -504,7 +504,14 @@ h1, h2, h3, h4 {
     0 0 200px rgba(140, 80, 200, 0.1) !important;
   animation: heroGlow 4s ease-in-out infinite alternate !important;
 }
-
+css.hero-name-line {
+  font-family: 'Anton', sans-serif !important;
+  font-size: clamp(4.5rem, 11vw, 8rem) !important;
+  color: #fff5e6 !important;
+  letter-spacing: 0.05em !important;
+  line-height: 0.92 !important;
+  /* ...rest of the glow stays the same */
+}
 /* --- Enhanced HAMMOND ORGAN & ROCK KEYBOARDS tagline --- */
 .hero-tagline {
   font-size: clamp(1.1rem, 2.2vw, 1.5rem) !important;
