@@ -431,20 +431,40 @@ h1, h2, h3, h4 {
   .page-hero-split .page-hero-text { padding: 2rem 1.5rem; }
 }
 /* ============================================
-   HOMEPAGE FIXES — paste at bottom of styles.css
+   OVERRIDES & MOBILE FIXES
    ============================================ */
 
-/* FIX 1: Bolder, bigger hero name */
+/* --- Hero name: Anton font, amber-pink glow, uppercase --- */
 .hero-name-line {
-  font-size: clamp(8rem, 18vw, 15rem);
-  -webkit-text-stroke: 1px rgba(255,255,255,0.6);
+  font-family: 'Anton', sans-serif !important;
+  font-size: clamp(4.5rem, 11vw, 8rem) !important;
+  color: #fff5e6 !important;
+  letter-spacing: 0.05em !important;
+  line-height: 0.92 !important;
+  text-transform: uppercase !important;
   text-shadow:
-    0 0 50px rgba(255,255,255,0.5),
-    0 0 100px rgba(255,255,255,0.2),
-    0 0 150px rgba(200,150,62,0.15);
+    0 0 10px rgba(230, 180, 120, 0.9),
+    0 0 20px rgba(220, 160, 100, 0.7),
+    0 0 40px rgba(200, 140, 70, 0.55),
+    0 0 80px rgba(190, 120, 60, 0.4),
+    0 0 120px rgba(180, 100, 140, 0.3),
+    0 0 200px rgba(150, 80, 130, 0.15) !important;
+  animation: heroGlow 4s ease-in-out infinite alternate !important;
 }
 
-/* FIX 2: Smoother photo bleed — no hard line between left and right */
+/* --- Hero tagline: bright amber with glow --- */
+.hero-tagline {
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem) !important;
+  color: #d4a54a !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  text-shadow:
+    0 0 8px rgba(212, 165, 74, 0.8),
+    0 0 25px rgba(212, 165, 74, 0.5),
+    0 0 50px rgba(200, 140, 80, 0.3) !important;
+}
+
+/* --- Smoother photo bleed on hero --- */
 .hero-photo::before {
   background: linear-gradient(
     90deg,
@@ -456,115 +476,94 @@ h1, h2, h3, h4 {
   );
 }
 
-/* FIX 3: On mobile, keep the bleed smooth */
-@media (max-width: 768px) {
-  .hero-name-line {
-    font-size: clamp(5rem, 20vw, 8rem);
+/* --- Breathing glow animation --- */
+@keyframes heroGlow {
+  0% {
+    text-shadow:
+      0 0 10px rgba(230, 180, 120, 0.9),
+      0 0 20px rgba(220, 160, 100, 0.7),
+      0 0 40px rgba(200, 140, 70, 0.55),
+      0 0 80px rgba(190, 120, 60, 0.4),
+      0 0 120px rgba(180, 100, 140, 0.3),
+      0 0 200px rgba(150, 80, 130, 0.15);
+  }
+  100% {
+    text-shadow:
+      0 0 15px rgba(230, 180, 120, 1),
+      0 0 30px rgba(220, 160, 100, 0.8),
+      0 0 60px rgba(200, 140, 70, 0.65),
+      0 0 100px rgba(190, 120, 60, 0.5),
+      0 0 160px rgba(180, 100, 140, 0.4),
+      0 0 250px rgba(150, 80, 130, 0.2);
   }
 }
-/* FIX: Carousel mobile scaling */
-@media (max-width: 620px) {
-  .carousel-container {
-    overflow: hidden;
-    height: 55vw;
-  }
-  .carousel-container iframe {
-    width: 620px;
-    height: 620px;
-    transform: scale(0.55);
-    transform-origin: top left;
-  /* FIX: Gallery images show full, no cropping */
+
+/* ============================================
+   MOBILE FIXES
+   ============================================ */
+
+/* --- Gallery: show full images, no cropping --- */
 @media (max-width: 768px) {
   .gallery-grid {
     grid-template-columns: 1fr !important;
   }
   .gallery-grid img {
     height: auto !important;
-    max-height: 500px;
+    max-height: 600px;
     object-fit: contain !important;
-    background: #0a0a0f;
+    background: var(--black);
+  }
+  .style-photos {
+    grid-template-columns: 1fr;
   }
   .style-photos img {
     height: auto !important;
     object-fit: contain !important;
-    background: #0a0a0f;
-  }
-}/* ============================================
-  */
-
-/* --- Enhanced DANNY MATTIN name glow --- */
-.hero-name-line {
-  font-size: clamp(4rem, 10vw, 7.5rem) !important;
-  color: #ffffff !important;
-  letter-spacing: 0.05em !important;
-  line-height: 0.92 !important;
-  text-shadow:
-    /* tight white core glow */
-    0 0 10px rgba(255, 255, 255, 0.9),
-    0 0 20px rgba(255, 255, 255, 0.6),
-    /* mid-range warm amber bloom */
-    0 0 40px rgba(200, 160, 80, 0.5),
-    0 0 80px rgba(200, 150, 62, 0.35),
-    /* wide atmospheric purple haze */
-    0 0 120px rgba(140, 80, 200, 0.2),
-    0 0 200px rgba(140, 80, 200, 0.1) !important;
-  animation: heroGlow 4s ease-in-out infinite alternate !important;
-}
-css.hero-name-line {
-  font-family: 'Anton', sans-serif !important;
-  font-size: clamp(4.5rem, 11vw, 8rem) !important;
-  color: #fff5e6 !important;
-  letter-spacing: 0.05em !important;
-  line-height: 0.92 !important;
-  /* ...rest of the glow stays the same */
-}
-/* --- Enhanced HAMMOND ORGAN & ROCK KEYBOARDS tagline --- */
-.hero-tagline {
-  font-size: clamp(1.1rem, 2.2vw, 1.5rem) !important;
-  color: #d4a54a !important;
-  letter-spacing: 0.15em !important;
-  text-transform: uppercase !important;
-  text-shadow:
-    0 0 8px rgba(212, 165, 74, 0.8),
-    0 0 25px rgba(212, 165, 74, 0.5),
-    0 0 50px rgba(200, 140, 62, 0.3) !important;
-}
-
-/* --- Subtle breathing glow animation --- */
-@keyframes heroGlow {
-  0% {
-    text-shadow:
-      0 0 10px rgba(255, 255, 255, 0.9),
-      0 0 20px rgba(255, 255, 255, 0.6),
-      0 0 40px rgba(200, 160, 80, 0.5),
-      0 0 80px rgba(200, 150, 62, 0.35),
-      0 0 120px rgba(140, 80, 200, 0.2),
-      0 0 200px rgba(140, 80, 200, 0.1);
-  }
-  100% {
-    text-shadow:
-      0 0 15px rgba(255, 255, 255, 1),
-      0 0 30px rgba(255, 255, 255, 0.7),
-      0 0 60px rgba(200, 160, 80, 0.6),
-      0 0 100px rgba(200, 150, 62, 0.45),
-      0 0 160px rgba(140, 80, 200, 0.3),
-      0 0 250px rgba(140, 80, 200, 0.15);
+    background: var(--black);
   }
 }
 
-/* --- Also enhance on mobile --- */
+/* --- Road montage (montage 13): taller on mobile so image isn't cut off --- */
+@media (max-width: 768px) {
+  .road-montage {
+    height: auto !important;
+    min-height: 250px;
+    aspect-ratio: 4 / 3;
+  }
+  .road-montage img {
+    max-width: 92%;
+    max-height: 92%;
+  }
+}
+
+/* --- Carousel (montage 11): scale down properly on mobile --- */
+@media (max-width: 768px) {
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: auto !important;
+    aspect-ratio: 1 / 1;
+  }
+  .carousel-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform: scale(0.5);
+    transform-origin: top left;
+    border: none;
+  }
+}
+
+/* --- Hero text on mobile --- */
 @media (max-width: 768px) {
   .hero-name-line {
-    font-size: clamp(3rem, 14vw, 5rem) !important;
+    font-size: clamp(3.5rem, 16vw, 5.5rem) !important;
   }
   .hero-tagline {
-  font-size: clamp(1.1rem, 2.2vw, 1.5rem) !important;
-  color: #d4a54a !important;
-  letter-spacing: 0.15em !important;
-  text-transform: uppercase !important;
-  text-shadow:
-    0 0 8px rgba(212, 165, 74, 0.8),
-    0 0 25px rgba(212, 165, 74, 0.5),
-    0 0 50px rgba(200, 140, 80, 0.3) !important;
-}
+    font-size: clamp(0.9rem, 3.5vw, 1.2rem) !important;
+    letter-spacing: 0.1em !important;
+  }
 }
