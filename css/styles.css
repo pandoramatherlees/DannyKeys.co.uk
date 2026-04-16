@@ -558,7 +558,13 @@ css.hero-name-line {
     font-size: clamp(3rem, 14vw, 5rem) !important;
   }
   .hero-tagline {
-    font-size: clamp(0.9rem, 3.5vw, 1.2rem) !important;
-    letter-spacing: 0.1em !important;
-  }
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem) !important;
+  color: #d4a54a !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  text-shadow:
+    0 0 8px rgba(212, 165, 74, 0.8),
+    0 0 25px rgba(212, 165, 74, 0.5),
+    0 0 50px rgba(200, 140, 80, 0.3) !important;
+}
 }
