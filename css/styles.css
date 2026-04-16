@@ -543,7 +543,7 @@ h1, h2, h3, h4 {
     width: 100%;
     overflow: hidden;
     height: auto !important;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 5 / 4;
   }
   .carousel-container iframe {
     position: absolute;
