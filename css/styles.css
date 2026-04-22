@@ -567,3 +567,27 @@ h1, h2, h3, h4 {
     letter-spacing: 0.1em !important;
   }
 }
+/* ===== Hero tagline: bright orange, larger, one line ===== */
+.hero-tagline,
+.hero-subtitle,
+.hero h2,
+.hero p {
+    color: #FF6B1A !important;
+    font-size: clamp(1.2rem, 2.4vw, 2.1rem) !important;
+    white-space: nowrap !important;
+    letter-spacing: 0.18em !important;
+    text-shadow:
+        0 0 18px rgba(255, 107, 26, 0.65),
+        0 0 38px rgba(255, 107, 26, 0.35) !important;
+}
+
+/* Mobile: keep it on one line on phones */
+@media (max-width: 600px) {
+    .hero-tagline,
+    .hero-subtitle,
+    .hero h2,
+    .hero p {
+        font-size: clamp(0.8rem, 3.6vw, 1.15rem) !important;
+        letter-spacing: 0.12em !important;
+    }
+}
